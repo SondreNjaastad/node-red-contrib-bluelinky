@@ -13,9 +13,7 @@ module.exports = function(RED) {
                 let status = await car.status(true);
                 node.send({
                     payload: {
-                        status,
-                        odometer: car.odometer,
-                        location: car.location
+                        status
                     }
                 });
             } catch (err){
