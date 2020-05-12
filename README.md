@@ -30,6 +30,8 @@ Checkout out the docs [bluelinky-docs](https://hacksore.github.io/bluelinky-docs
 
 ## Contributors
 
+[Hacksore](https://github.com/hacksore) - USA wizard 🧙‍♂️
+
 [altagir](https://github.com/altagir) - Canada wizard 🧙‍♂️
 
 [SondreNjaastad](https://github.com/SondreNjaastad) - Europe wizard 🧙‍♂️

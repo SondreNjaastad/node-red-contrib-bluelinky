@@ -2,13 +2,6 @@ const BlueLinky = require('bluelinky');
 
 let client;
 
-function uuidv4() {
-    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-        var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
-        return v.toString(16);
-    });
-}
-
 module.exports = function(RED) {
     function GetVehicleStatus(config) {
         RED.nodes.createNode(this,config);
@@ -16,7 +9,6 @@ module.exports = function(RED) {
         var node = this;
         node.on('input', async function(msg) {
             try{
-                await client.enterPin();
                 let car = await client.getVehicle(this.bluelinkyConfig.vin);
                 let status = await car.status(true);
                 node.send({
@@ -40,7 +32,6 @@ module.exports = function(RED) {
         var node = this;
         node.on('input', async function(msg) {
             try{
-                await client.enterPin();
                 await client.getVehicles();
                 let car = await client.getVehicle(this.bluelinkyConfig.vin);
                 let result = await car.unlock();
@@ -61,7 +52,6 @@ module.exports = function(RED) {
         var node = this;
         node.on('input', async function(msg) {
             try{
-                await client.enterPin();
                 await client.getVehicles();
                 let car = await client.getVehicle(this.bluelinkyConfig.vin);
                 await car.status(true);
@@ -82,7 +72,6 @@ module.exports = function(RED) {
         var node = this;
         node.on('input', async function(msg) {
             try{
-                await client.enterPin();
                 await client.getVehicles();
                 let car = await client.getVehicle(this.bluelinkyConfig.vin);
                 await car.status(true);
@@ -103,7 +92,6 @@ module.exports = function(RED) {
         var node = this;
         node.on('input', async function(msg) {
             try{
-                await client.enterPin();
                 let car = await client.getVehicle(this.bluelinkyConfig.vin);
                 let result = await car.start(msg.payload);
                 node.send({
@@ -123,7 +111,6 @@ module.exports = function(RED) {
         var node = this;
         node.on('input', async function(msg) {
             try{
-                await client.enterPin();
                 let car = await client.getVehicle(this.bluelinkyConfig.vin);
                 let result = await car.stop(msg.payload);
                 node.send({
@@ -143,7 +130,6 @@ module.exports = function(RED) {
         var node = this;
         node.on('input', async function(msg) {
             try{
-                await client.enterPin();
                 let car = await client.getVehicle(this.bluelinkyConfig.vin);
                 let result = await car.lock();
                 node.send({
@@ -163,15 +149,13 @@ module.exports = function(RED) {
         this.password = n.password;
         this.region = n.region;
         this.pin = n.pin;
-        this.deviceUuid = uuidv4();
         this.vin = n.vin;
 
         client = new BlueLinky({
             username: this.username,
             password: this.password,
             region: this.region,
-            pin: this.pin,
-            deviceUuid: this.deviceUuid,
+            pin: this.pin
         });
     }
 
