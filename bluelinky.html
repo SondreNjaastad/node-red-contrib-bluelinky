@@ -1,133 +1,134 @@
 <script type="text/javascript">
-    RED.nodes.registerType('car-status',{
+    RED.nodes.registerType('car-status', {
         category: 'bluelinky',
         color: '#3FADB5',
         defaults: {
-            name: {value:"Get status"},
-            bluelinky: {value:"Bluelinky config", type:"bluelinky"},
+            name: { value: "Get status" },
+            refresh: { value: true },
+            bluelinky: { value: "Bluelinky config", type: "bluelinky" },
         },
-        inputs:1,
-        outputs:1,
+        inputs: 1,
+        outputs: 1,
         icon: "bluelinky.png",
-        label: function() {
-            return this.name||"car-status";
+        label: function () {
+            return this.name || "car-status";
         }
     });
 </script>
 
 <script type="text/javascript">
-    RED.nodes.registerType('start-car',{
+    RED.nodes.registerType('start-car', {
         category: 'bluelinky',
         color: '#3FADB5',
         defaults: {
-            name: {value:"Start car"},
-            bluelinky: {value:"Bluelinky config", type:"bluelinky"},
+            name: { value: "Start car" },
+            bluelinky: { value: "Bluelinky config", type: "bluelinky" },
         },
-        inputs:1,
-        outputs:1,
+        inputs: 1,
+        outputs: 1,
         icon: "bluelinky.png",
-        label: function() {
-            return this.name||"start-car";
+        label: function () {
+            return this.name || "start-car";
         }
     });
 </script>
 
 <script type="text/javascript">
-    RED.nodes.registerType('stop-car',{
+    RED.nodes.registerType('stop-car', {
         category: 'bluelinky',
         color: '#3FADB5',
         defaults: {
-            name: {value:"Stop car"},
-            bluelinky: {value:"Bluelinky config", type:"bluelinky"},
+            name: { value: "Stop car" },
+            bluelinky: { value: "Bluelinky config", type: "bluelinky" },
         },
-        inputs:1,
-        outputs:1,
+        inputs: 1,
+        outputs: 1,
         icon: "bluelinky.png",
-        label: function() {
-            return this.name||"stop-car";
+        label: function () {
+            return this.name || "stop-car";
         }
     });
 </script>
 
 <script type="text/javascript">
-    RED.nodes.registerType('car-odometer',{
+    RED.nodes.registerType('car-odometer', {
         category: 'bluelinky',
         color: '#3FADB5',
         defaults: {
-            name: {value:"Get car odometer"},
-            bluelinky: {value:"Bluelinky config", type:"bluelinky"},
+            name: { value: "Get car odometer" },
+            bluelinky: { value: "Bluelinky config", type: "bluelinky" },
         },
-        inputs:1,
-        outputs:1,
+        inputs: 1,
+        outputs: 1,
         icon: "bluelinky.png",
-        label: function() {
-            return this.name||"car-odometer";
+        label: function () {
+            return this.name || "car-odometer";
         }
     });
 </script>
 
 <script type="text/javascript">
-    RED.nodes.registerType('car-location',{
+    RED.nodes.registerType('car-location', {
         category: 'bluelinky',
         color: '#3FADB5',
         defaults: {
-            name: {value:"Get car location"},
-            bluelinky: {value:"Bluelinky config", type:"bluelinky"},
+            name: { value: "Get car location" },
+            bluelinky: { value: "Bluelinky config", type: "bluelinky" },
         },
-        inputs:1,
-        outputs:1,
+        inputs: 1,
+        outputs: 1,
         icon: "bluelinky.png",
-        label: function() {
-            return this.name||"car-location";
+        label: function () {
+            return this.name || "car-location";
         }
     });
 </script>
 
 <script type="text/javascript">
-    RED.nodes.registerType('unlock-car',{
+    RED.nodes.registerType('unlock-car', {
         category: 'bluelinky',
         color: '#3FADB5',
         defaults: {
-            name: {value:"Unlock car"},
-            bluelinky: {value:"Bluelinky config", type:"bluelinky"},
+            name: { value: "Unlock car" },
+            bluelinky: { value: "Bluelinky config", type: "bluelinky" },
         },
-        inputs:1,
-        outputs:1,
+        inputs: 1,
+        outputs: 1,
         icon: "bluelinky.png",
-        label: function() {
-            return this.name||"unlock-car";
+        label: function () {
+            return this.name || "unlock-car";
         }
     });
 </script>
 
 <script type="text/javascript">
-    RED.nodes.registerType('lock-car',{
+    RED.nodes.registerType('lock-car', {
         category: 'bluelinky',
         color: '#3FADB5',
         defaults: {
-            name: {value:"Lock car"},
-            bluelinky: {value:"Bluelinky config", type:"bluelinky"},
+            name: { value: "Lock car" },
+            bluelinky: { value: "Bluelinky config", type: "bluelinky" },
         },
-        inputs:1,
-        outputs:1,
+        inputs: 1,
+        outputs: 1,
         icon: "bluelinky.png",
-        label: function() {
-            return this.name||"lock-car";
+        label: function () {
+            return this.name || "lock-car";
         }
     });
 </script>
 
 <script type="text/javascript">
-    RED.nodes.registerType('bluelinky',{
+    RED.nodes.registerType('bluelinky', {
         category: 'config',
         defaults: {
-            username: {required:true},
-            password: {required:true},
-            region: {value:"EU", required:true},
-            pin: {required:true,validate:RED.validators.number()},
-            vin: {required:true}
+            username: { required: true },
+            password: { required: true },
+            region: { value: "EU", required: true },
+            pin: { required: true, validate: RED.validators.number() },
+            vin: { required: true }
         },
-        label: function() {
+        label: function () {
             return this.vin;
         }
     });
@@ -136,7 +137,13 @@
 <script type="text/html" data-template-name="car-status">
     <div class="form-row">
         <label for="node-input-name"><i class="icon-tag"></i> Name</label>
-        <input type="text" id="node-input-name" placeholder="Name">
+        <input type="text" id="node-input-name" placeholder="Name"/>
+    </div>
+    <div class="form-row">
+        <label for="node-input-refresh">
+            Refresh
+        </label>
+        <input type="checkbox" style="display: inline-block; width: auto; vertical-align: top;" id="node-input-refresh"/>
     </div>
     <div class="form-row">
         <label for="node-input-bluelinky"><i class="icon-tag"></i> Config</label>
@@ -230,7 +237,7 @@
 </script>
 
 <script type="text/html" data-help-name="car-odometer">
-    <p>Get the location of the configured vehicle</p>
+    <p>Get the odometer of the configured vehicle</p>
 </script>
 
 <script type="text/html" data-template-name="unlock-car">
