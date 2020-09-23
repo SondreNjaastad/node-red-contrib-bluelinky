@@ -4,7 +4,8 @@
         color: '#3FADB5',
         defaults: {
             name: { value: "Get status" },
-            refresh: { value: true },
+            dorefresh: { value: true },
+            parsed: { value: false },
             bluelinky: { value: "Bluelinky config", type: "bluelinky" },
         },
         inputs: 1,
@@ -140,10 +141,16 @@
         <input type="text" id="node-input-name" placeholder="Name"/>
     </div>
     <div class="form-row">
-        <label for="node-input-refresh">
+        <label for="node-input-dorefresh">
             Refresh
         </label>
-        <input type="checkbox" style="display: inline-block; width: auto; vertical-align: top;" id="node-input-refresh"/>
+        <input type="checkbox" style="display: inline-block; width: auto; vertical-align: top;" id="node-input-dorefresh"/>
+    </div>
+    <div class="form-row">
+        <label for="node-input-parsed">
+            Parsed (Simpler object returned)
+        </label>
+        <input type="checkbox" style="display: inline-block; width: auto; vertical-align: top;" id="node-input-parsed"/>
     </div>
     <div class="form-row">
         <label for="node-input-bluelinky"><i class="icon-tag"></i> Config</label>
