@@ -102,7 +102,7 @@ module.exports = function (RED) {
         const result = await car.odometer();
         await car.status(true);
         node.send({
-          payload: resultÍ,
+          payload: result,
         });
       } catch (err) {
         node.send({
