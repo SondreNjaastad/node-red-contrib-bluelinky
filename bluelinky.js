@@ -75,7 +75,6 @@ module.exports = function (RED) {
         const car = await client.getVehicle(this.bluelinkyConfig.vin);
         this.status(this.bluelinkyConfig.status);
         const result = await car.location();
-        await car.status(true);
         node.send({
           payload: result,
         });
@@ -100,7 +99,6 @@ module.exports = function (RED) {
         await client.getVehicles();
         const car = await client.getVehicle(this.bluelinkyConfig.vin);
         const result = await car.odometer();
-        await car.status(true);
         node.send({
           payload: result,
         });
