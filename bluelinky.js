@@ -12,12 +12,19 @@ module.exports = function (RED) {
     RED.nodes.createNode(this, config);
     this.bluelinkyConfig = RED.nodes.getNode(config.bluelinky);
     this.status(this.bluelinkyConfig.status);
+    this.connected = false;
     const node = this;
     State.on('changed', (statusObject) => {
       this.status(statusObject);
+      if(statusObject.text === 'Ready') {
+          this.connected = true;
+      }
     })
     node.on('input', async function (msg) {
       try {
+        if(!this.connected) {
+            return null;
+        }
         const car = await client.getVehicle(this.bluelinkyConfig.vin);
         const status = await car.status({
             refresh: config.dorefresh,
@@ -40,12 +47,19 @@ module.exports = function (RED) {
     RED.nodes.createNode(this, config);
     this.bluelinkyConfig = RED.nodes.getNode(config.bluelinky);
     this.status(this.bluelinkyConfig.status);
+    this.connected = false;
     const node = this;
     State.on('changed', (statusObject) => {
       this.status(statusObject);
+      if(statusObject.text === 'Ready') {
+          this.connected = true;
+      }
     })
     node.on('input', async function (msg) {
       try {
+        if(!this.connected) {
+            return null;
+        }
         await client.getVehicles();
         const car = await client.getVehicle(this.bluelinkyConfig.vin);
         this.status(this.bluelinkyConfig.status);
@@ -65,12 +79,19 @@ module.exports = function (RED) {
     RED.nodes.createNode(this, config);
     this.bluelinkyConfig = RED.nodes.getNode(config.bluelinky);
     this.status(this.bluelinkyConfig.status);
+    this.connected = false;
     const node = this;
     State.on('changed', (statusObject) => {
       this.status(statusObject);
+      if(statusObject.text === 'Ready') {
+          this.connected = true;
+      }
     })
     node.on('input', async function (msg) {
       try {
+        if(!this.connected) {
+            return null;
+        }
         await client.getVehicles();
         const car = await client.getVehicle(this.bluelinkyConfig.vin);
         this.status(this.bluelinkyConfig.status);
@@ -90,12 +111,20 @@ module.exports = function (RED) {
     RED.nodes.createNode(this, config);
     this.bluelinkyConfig = RED.nodes.getNode(config.bluelinky);
     this.status(this.bluelinkyConfig.status);
+    this.connected = false;
     const node = this;
+
     State.on('changed', (statusObject) => {
       this.status(statusObject);
+      if(statusObject.text === 'Ready') {
+          this.connected = true;
+      }
     })
     node.on('input', async function (msg) {
       try {
+        if(!this.connected) {
+            return null;
+        }
         await client.getVehicles();
         const car = await client.getVehicle(this.bluelinkyConfig.vin);
         const result = await car.odometer();
@@ -114,12 +143,19 @@ module.exports = function (RED) {
     RED.nodes.createNode(this, config);
     this.bluelinkyConfig = RED.nodes.getNode(config.bluelinky);
     this.status(this.bluelinkyConfig.status);
+    this.connected = false;
     const node = this;
     State.on('changed', (statusObject) => {
       this.status(statusObject);
+      if(statusObject.text === 'Ready') {
+          this.connected = true;
+      }
     })
     node.on('input', async function (msg) {
       try {
+        if(!this.connected) {
+            return null;
+        }
         const car = await client.getVehicle(this.bluelinkyConfig.vin);
         const result = await car.start(msg.payload);
         node.send({
@@ -137,12 +173,19 @@ module.exports = function (RED) {
     RED.nodes.createNode(this, config);
     this.bluelinkyConfig = RED.nodes.getNode(config.bluelinky);
     this.status(this.bluelinkyConfig.status);
+    this.connected = false;
     const node = this;
     State.on('changed', (statusObject) => {
       this.status(statusObject);
+      if(statusObject.text === 'Ready') {
+          this.connected = true;
+      }
     })
     node.on('input', async function (msg) {
       try {
+        if(!this.connected) {
+            return null;
+        }
         const car = await client.getVehicle(this.bluelinkyConfig.vin);
         const result = await car.stop(msg.payload);
         node.send({
@@ -160,12 +203,19 @@ module.exports = function (RED) {
     RED.nodes.createNode(this, config);
     this.bluelinkyConfig = RED.nodes.getNode(config.bluelinky);
     this.status(this.bluelinkyConfig.status);
+    this.connected = false;
     const node = this;
     State.on('changed', (statusObject) => {
       this.status(statusObject);
+      if(statusObject.text === 'Ready') {
+          this.connected = true;
+      }
     })
     node.on('input', async function (msg) {
       try {
+        if(!this.connected) {
+            return null;
+        }
         let car = await client.getVehicle(this.bluelinkyConfig.vin);
         let result = await car.lock();
         node.send({
@@ -186,7 +236,7 @@ module.exports = function (RED) {
     this.region = config.region;
     this.pin = config.pin;
     this.vin = config.vin;
-    this.status = {fill: 'grey', shape: 'ring', text: 'Logging inn...'}
+    this.status = {fill: 'grey', shape: 'ring', text: 'Logging in...'}
     State.emit('changed', this.status);
 
     client = new BlueLinky({
@@ -200,6 +250,11 @@ module.exports = function (RED) {
       // we have logged in and have access to API now
       // how do we make sure nodes wait until the client is ready?
       this.status = {fill: 'green', shape: 'ring', text: 'Ready'}
+      State.emit('changed', this.status);
+    });
+
+    client.on('error', () => {
+      this.status = {fill: 'green', shape: 'ring', text: 'Error'}
       State.emit('changed', this.status);
     });
   }
