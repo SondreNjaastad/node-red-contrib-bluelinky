@@ -254,7 +254,7 @@ module.exports = function (RED) {
     });
 
     client.on('error', () => {
-      this.status = {fill: 'green', shape: 'ring', text: 'Error'}
+      this.status = {fill: 'red', shape: 'ring', text: 'Error'}
       State.emit('changed', this.status);
     });
   }
