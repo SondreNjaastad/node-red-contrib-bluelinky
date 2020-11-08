@@ -1,6 +1,6 @@
 {
   "name": "node-red-contrib-bluelinky",
-  "version": "0.0.9-alpha",
+  "version": "0.0.10-alpha",
   "description": "A Node Red Library for BlueLinky, a Hyundai 3rd-party wrapper",
   "main": "bluelinky.js",
   "scripts": {
