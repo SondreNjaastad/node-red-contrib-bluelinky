@@ -25,6 +25,6 @@ jobs:
     needs: publish-npm
     steps:
     - name: POST
-      uses: hacksore/node-red-flow@v1
+      uses: hacksore/node-red-flow@v2
       with:
         repo: 'node-red-contrib-bluelinky'
