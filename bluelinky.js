@@ -75,6 +75,70 @@ module.exports = function (RED) {
     });
   }
 
+  function StartCharge(config) {
+    RED.nodes.createNode(this, config);
+    this.bluelinkyConfig = RED.nodes.getNode(config.bluelinky);
+    this.status(this.bluelinkyConfig.status);
+    this.connected = false;
+    const node = this;
+    State.on('changed', (statusObject) => {
+      this.status(statusObject);
+      if(statusObject.text === 'Ready') {
+          this.connected = true;
+      }
+    })
+    node.on('input', async function (msg) {
+      try {
+        if(!this.connected) {
+            return null;
+        }
+        await client.getVehicles();
+        const car = await client.getVehicle(this.bluelinkyConfig.vin);
+        this.status(this.bluelinkyConfig.status);
+        const result = await car.startCharge();
+        node.send({
+          payload: result,
+        });
+      } catch (err) {
+        node.send({
+          payload: err,
+        });
+      }
+    });
+  }
+
+  function StopCharge(config) {
+    RED.nodes.createNode(this, config);
+    this.bluelinkyConfig = RED.nodes.getNode(config.bluelinky);
+    this.status(this.bluelinkyConfig.status);
+    this.connected = false;
+    const node = this;
+    State.on('changed', (statusObject) => {
+      this.status(statusObject);
+      if(statusObject.text === 'Ready') {
+          this.connected = true;
+      }
+    })
+    node.on('input', async function (msg) {
+      try {
+        if(!this.connected) {
+            return null;
+        }
+        await client.getVehicles();
+        const car = await client.getVehicle(this.bluelinkyConfig.vin);
+        this.status(this.bluelinkyConfig.status);
+        const result = await car.stopCharge();
+        node.send({
+          payload: result,
+        });
+      } catch (err) {
+        node.send({
+          payload: err,
+        });
+      }
+    });
+  }
+
   function Location(config) {
     RED.nodes.createNode(this, config);
     this.bluelinkyConfig = RED.nodes.getNode(config.bluelinky);
@@ -267,4 +331,6 @@ module.exports = function (RED) {
   RED.nodes.registerType('car-location', Location);
   RED.nodes.registerType('start-car', Start);
   RED.nodes.registerType('stop-car', Stop);
+  RED.nodes.registerType('start-charge', StartCharge);
+  RED.nodes.registerType('stop-charge', StopCharge);
 };
