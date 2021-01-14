@@ -95,7 +95,7 @@ module.exports = function (RED) {
         await client.getVehicles();
         const car = await client.getVehicle(this.bluelinkyConfig.vin);
         this.status(this.bluelinkyConfig.status);
-        const result = await car.StartCharge();
+        const result = await car.startCharge();
         node.send({
           payload: result,
         });
@@ -127,7 +127,7 @@ module.exports = function (RED) {
         await client.getVehicles();
         const car = await client.getVehicle(this.bluelinkyConfig.vin);
         this.status(this.bluelinkyConfig.status);
-        const result = await car.StopCharge();
+        const result = await car.stopCharge();
         node.send({
           payload: result,
         });
