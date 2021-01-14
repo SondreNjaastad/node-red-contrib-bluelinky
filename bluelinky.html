@@ -120,6 +120,40 @@
 </script>
 
 <script type="text/javascript">
+    RED.nodes.registerType('start-charge', {
+        category: 'bluelinky',
+        color: '#3FADB5',
+        defaults: {
+            name: { value: "Start Charging" },
+            bluelinky: { value: "Bluelinky config", type: "bluelinky" },
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "bluelinky.png",
+        label: function () {
+            return this.name || "start-charge";
+        }
+    });
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('stop-charge', {
+        category: 'bluelinky',
+        color: '#3FADB5',
+        defaults: {
+            name: { value: "Stop Charging" },
+            bluelinky: { value: "Bluelinky config", type: "bluelinky" },
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "bluelinky.png",
+        label: function () {
+            return this.name || "stop-charge";
+        }
+    });
+</script>
+
+<script type="text/javascript">
     RED.nodes.registerType('bluelinky', {
         category: 'config',
         defaults: {
@@ -245,6 +279,28 @@
 
 <script type="text/html" data-help-name="car-odometer">
     <p>Get the odometer of the configured vehicle</p>
+</script>
+
+<script type="text/html" data-template-name="start-charge">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-bluelinky"><i class="icon-tag"></i> Config</label>
+        <input type="text" id="node-input-bluelinky" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/html" data-template-name="stop-charge">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-bluelinky"><i class="icon-tag"></i> Config</label>
+        <input type="text" id="node-input-bluelinky" placeholder="Name">
+    </div>
 </script>
 
 <script type="text/html" data-template-name="unlock-car">
