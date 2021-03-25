@@ -38,6 +38,38 @@ module.exports = function (RED) {
     });
   }
 
+  function GetFullVehicleStatus(config) {
+    RED.nodes.createNode(this, config);
+    this.bluelinkyConfig = RED.nodes.getNode(config.bluelinky);
+    this.status(this.bluelinkyConfig.status);
+    this.connected = false;
+    const node = this;
+    State.on('changed', (statusObject) => {
+      this.status(statusObject);
+      if(statusObject.text === 'Ready') {
+          this.connected = true;
+      }
+    })
+    node.on('input', async function (msg) {
+      try {
+        if(!this.connected) {
+            return null;
+        }
+        const car = await client.getVehicle(this.bluelinkyConfig.vin);
+        const status = await car.fullStatus({
+            refresh: config.dorefresh,
+          });
+        node.send({
+          payload: status,
+        });
+      } catch (err) {
+        node.send({
+          payload: err,
+        });
+      }
+    });
+  }
+
   function Unlock(config) {
     RED.nodes.createNode(this, config);
     this.bluelinkyConfig = RED.nodes.getNode(config.bluelinky);
@@ -320,6 +352,7 @@ module.exports = function (RED) {
 
   RED.nodes.registerType('bluelinky', BluelinkyNode);
   RED.nodes.registerType('car-status', GetVehicleStatus);
+  RED.nodes.registerType('car-fullstatus', GetFullVehicleStatus);
   RED.nodes.registerType('unlock-car', Unlock);
   RED.nodes.registerType('lock-car', Lock);
   RED.nodes.registerType('car-odometer', Odometer);
