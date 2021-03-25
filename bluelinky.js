@@ -2,9 +2,6 @@ const BlueLinky = require('bluelinky');
 const EventEmitter = require('events');
 
 const State = new EventEmitter();
-
-
-
 let client;
 
 module.exports = function (RED) {
@@ -31,9 +28,7 @@ module.exports = function (RED) {
             parsed: config.parsed,
           });
         node.send({
-          payload: {
-            status,
-          },
+          payload: status,
         });
       } catch (err) {
         node.send({
