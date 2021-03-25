@@ -31,6 +31,6 @@
   },
   "homepage": "https://github.com/SondreNjaastad/node-red-contrib-bluelinky#readme",
   "dependencies": {
-    "bluelinky": "^7.0.0"
+    "bluelinky": "^7.0.1"
   }
 }
