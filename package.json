@@ -1,7 +1,7 @@
 {
   "name": "node-red-contrib-bluelinky",
   "version": "0.0.16",
-  "description": "A Node Red Library for BlueLinky, a Hyundai 3rd-party wrapper",
+  "description": "A Node Red Library for BlueLinky, a Hyundai and Kia 3rd-party wrapper",
   "main": "bluelinky.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -12,7 +12,9 @@
   },
   "keywords": [
     "Hyundai",
+    "Kia",
     "Bluelink",
+    "UVO",
     "Bluelinky",
     "node-red"
   ],
