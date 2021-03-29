@@ -18,6 +18,24 @@
 </script>
 
 <script type="text/javascript">
+    RED.nodes.registerType('car-fullstatus', {
+        category: 'bluelinky',
+        color: '#3FADB5',
+        defaults: {
+            name: { value: "Get full status" },
+            dorefresh: { value: true },
+            bluelinky: { value: "Bluelinky config", type: "bluelinky" },
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "bluelinky.png",
+        label: function () {
+            return this.name || "car-fullstatus";
+        }
+    });
+</script>
+
+<script type="text/javascript">
     RED.nodes.registerType('start-car', {
         category: 'bluelinky',
         color: '#3FADB5',
@@ -197,6 +215,26 @@
     <p>Get the status of the configured vehicle</p>
 </script>
 
+<script type="text/html" data-template-name="car-fullstatus">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name"/>
+    </div>
+    <div class="form-row">
+        <label for="node-input-dorefresh">
+            Refresh
+        </label>
+        <input type="checkbox" style="display: inline-block; width: auto; vertical-align: top;" id="node-input-dorefresh"/>
+    </div>
+    <div class="form-row">
+        <label for="node-input-bluelinky"><i class="icon-tag"></i> Config</label>
+        <input type="text" id="node-input-bluelinky" placeholder="Name">
+    </div>
+</script>
+<script type="text/html" data-help-name="car-fullstatus">
+    <p>Get the full status of the configured vehicle, always unparsed</p>
+</script>
+
 <script type="text/html" data-template-name="start-car">
     <div class="form-row">
         <label for="node-input-name"><i class="icon-tag"></i> Name</label>
@@ -293,6 +331,10 @@
     </div>
 </script>
 
+<script type="text/html" data-help-name="start-charge">
+    <p>Starts charging the configured vehicle</p>
+</script>
+
 <script type="text/html" data-template-name="stop-charge">
     <div class="form-row">
         <label for="node-input-name"><i class="icon-tag"></i> Name</label>
@@ -302,6 +344,10 @@
         <label for="node-input-bluelinky"><i class="icon-tag"></i> Config</label>
         <input type="text" id="node-input-bluelinky" placeholder="Name">
     </div>
+</script>
+
+<script type="text/html" data-help-name="stop-charge">
+    <p>Stops charging the configured vehicle</p>
 </script>
 
 <script type="text/html" data-template-name="unlock-car">
@@ -317,10 +363,6 @@
 
 <script type="text/html" data-help-name="unlock-car">
     <p>Unlock the configured vehicle</p>
-</script>
-
-<script type="text/html" data-help-name="get-vehicle-status">
-    <p>Get the status of the configured vehicle</p>
 </script>
 
 <script type="text/html" data-template-name="lock-car">
