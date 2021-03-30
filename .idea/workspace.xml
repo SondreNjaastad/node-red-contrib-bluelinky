@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2a508cda-84bd-404b-88a6-c87c3a092537" name="Default Changelist" comment="refer to bluelinky 7.0.0">
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bluelinky.html" beforeDir="false" afterPath="$PROJECT_DIR$/bluelinky.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="upstream/master" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedIndex" value="1" />
+  </component>
+  <component name="ProjectId" id="1iizay9G8vhtHWB7ui3mVhwhdw3" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2a508cda-84bd-404b-88a6-c87c3a092537" name="Default Changelist" comment="" />
+      <created>1602405268752</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1602405268752</updated>
+    </task>
+    <task id="LOCAL-00001" summary="minor changes">
+      <created>1604933104388</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1604933104389</updated>
+    </task>
+    <task id="LOCAL-00002" summary="bumped according to bluelinky">
+      <created>1612284382023</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1612284382024</updated>
+    </task>
+    <task id="LOCAL-00003" summary="newer version of kuvork (kia AND hyundai)">
+      <created>1613731852903</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1613731852903</updated>
+    </task>
+    <task id="LOCAL-00004" summary="newer version of kuvork (new stamp generator)">
+      <created>1614870674912</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1614870674912</updated>
+    </task>
+    <task id="LOCAL-00005" summary="newer version of kuvork (new stamp generator)">
+      <created>1615189652258</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1615189652258</updated>
+    </task>
+    <task id="LOCAL-00006" summary="newer version of kuvork (new stamp generator)">
+      <created>1615189838809</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1615189838809</updated>
+    </task>
+    <task id="LOCAL-00007" summary="newer version of kuvork (new stamp generator)">
+      <created>1615190847280</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1615190847280</updated>
+    </task>
+    <task id="LOCAL-00008" summary="adds FullStatus">
+      <created>1615626562370</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1615626562370</updated>
+    </task>
+    <task id="LOCAL-00009" summary="adds FullStatus">
+      <created>1615629511756</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1615629511756</updated>
+    </task>
+    <task id="LOCAL-00010" summary="adds help for three nodes">
+      <created>1615826713305</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1615826713305</updated>
+    </task>
+    <task id="LOCAL-00011" summary="refer to bluelinky 7.0.0">
+      <created>1616670777769</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1616670777769</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="minor changes" />
+    <MESSAGE value="bumped according to bluelinky" />
+    <MESSAGE value="newer version of kuvork (kia AND hyundai)" />
+    <MESSAGE value="newer version of kuvork (new stamp generator)" />
+    <MESSAGE value="adds FullStatus" />
+    <MESSAGE value="adds help for three nodes" />
+    <MESSAGE value="refer to bluelinky 7.0.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="refer to bluelinky 7.0.0" />
+  </component>
+</project>
