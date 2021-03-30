@@ -327,6 +327,7 @@ module.exports = function (RED) {
     this.region = config.region;
     this.pin = config.pin;
     this.vin = config.vin;
+    this.brand = config.brand;
     this.status = {fill: 'grey', shape: 'ring', text: 'Logging in...'}
     State.emit('changed', this.status);
 
@@ -335,6 +336,7 @@ module.exports = function (RED) {
       password: this.password,
       region: this.region,
       pin: this.pin,
+      brand: this.brand,
     });
 
     client.on('ready', () => {
