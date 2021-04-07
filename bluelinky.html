@@ -1,255 +1,267 @@
 <script type="text/javascript">
-    RED.nodes.registerType('car-status', {
-        category: 'bluelinky',
-        color: '#3FADB5',
-        defaults: {
-            name: { value: "Get status" },
-            dorefresh: { value: true },
-            parsed: { value: false },
-            bluelinky: { value: "Bluelinky config", type: "bluelinky" },
-        },
-        inputs: 1,
-        outputs: 1,
-        icon: "bluelinky.png",
-        label: function () {
-            return this.name || "car-status";
-        }
-    });
+  RED.nodes.registerType('car-status', {
+    category: 'bluelinky',
+    color: '#3FADB5',
+    defaults: {
+      name: { value: 'Get status' },
+      dorefresh: { value: true },
+      parsed: { value: false },
+      bluelinky: { value: 'Bluelinky config', type: 'bluelinky' },
+    },
+    inputs: 1,
+    outputs: 1,
+    icon: 'bluelinky.png',
+    label: function () {
+      return this.name || 'car-status';
+    },
+  });
 </script>
 
 <script type="text/javascript">
-    RED.nodes.registerType('car-fullstatus', {
-        category: 'bluelinky',
-        color: '#3FADB5',
-        defaults: {
-            name: { value: "Get full status" },
-            dorefresh: { value: true },
-            bluelinky: { value: "Bluelinky config", type: "bluelinky" },
-        },
-        inputs: 1,
-        outputs: 1,
-        icon: "bluelinky.png",
-        label: function () {
-            return this.name || "car-fullstatus";
-        }
-    });
+  RED.nodes.registerType('car-fullstatus', {
+    category: 'bluelinky',
+    color: '#3FADB5',
+    defaults: {
+      name: { value: 'Get full status' },
+      dorefresh: { value: true },
+      bluelinky: { value: 'Bluelinky config', type: 'bluelinky' },
+    },
+    inputs: 1,
+    outputs: 1,
+    icon: 'bluelinky.png',
+    label: function () {
+      return this.name || 'car-fullstatus';
+    },
+  });
 </script>
 
 <script type="text/javascript">
-    RED.nodes.registerType('start-car', {
-        category: 'bluelinky',
-        color: '#3FADB5',
-        defaults: {
-            name: { value: "Start car" },
-            bluelinky: { value: "Bluelinky config", type: "bluelinky" },
-        },
-        inputs: 1,
-        outputs: 1,
-        icon: "bluelinky.png",
-        label: function () {
-            return this.name || "start-car";
-        }
-    });
+  RED.nodes.registerType('start-car', {
+    category: 'bluelinky',
+    color: '#3FADB5',
+    defaults: {
+      name: { value: 'Start car' },
+      bluelinky: { value: 'Bluelinky config', type: 'bluelinky' },
+    },
+    inputs: 1,
+    outputs: 1,
+    icon: 'bluelinky.png',
+    label: function () {
+      return this.name || 'start-car';
+    },
+  });
 </script>
 
 <script type="text/javascript">
-    RED.nodes.registerType('stop-car', {
-        category: 'bluelinky',
-        color: '#3FADB5',
-        defaults: {
-            name: { value: "Stop car" },
-            bluelinky: { value: "Bluelinky config", type: "bluelinky" },
-        },
-        inputs: 1,
-        outputs: 1,
-        icon: "bluelinky.png",
-        label: function () {
-            return this.name || "stop-car";
-        }
-    });
+  RED.nodes.registerType('stop-car', {
+    category: 'bluelinky',
+    color: '#3FADB5',
+    defaults: {
+      name: { value: 'Stop car' },
+      bluelinky: { value: 'Bluelinky config', type: 'bluelinky' },
+    },
+    inputs: 1,
+    outputs: 1,
+    icon: 'bluelinky.png',
+    label: function () {
+      return this.name || 'stop-car';
+    },
+  });
 </script>
 
 <script type="text/javascript">
-    RED.nodes.registerType('car-odometer', {
-        category: 'bluelinky',
-        color: '#3FADB5',
-        defaults: {
-            name: { value: "Get car odometer" },
-            bluelinky: { value: "Bluelinky config", type: "bluelinky" },
-        },
-        inputs: 1,
-        outputs: 1,
-        icon: "bluelinky.png",
-        label: function () {
-            return this.name || "car-odometer";
-        }
-    });
+  RED.nodes.registerType('car-odometer', {
+    category: 'bluelinky',
+    color: '#3FADB5',
+    defaults: {
+      name: { value: 'Get car odometer' },
+      bluelinky: { value: 'Bluelinky config', type: 'bluelinky' },
+    },
+    inputs: 1,
+    outputs: 1,
+    icon: 'bluelinky.png',
+    label: function () {
+      return this.name || 'car-odometer';
+    },
+  });
 </script>
 
 <script type="text/javascript">
-    RED.nodes.registerType('car-location', {
-        category: 'bluelinky',
-        color: '#3FADB5',
-        defaults: {
-            name: { value: "Get car location" },
-            bluelinky: { value: "Bluelinky config", type: "bluelinky" },
-        },
-        inputs: 1,
-        outputs: 1,
-        icon: "bluelinky.png",
-        label: function () {
-            return this.name || "car-location";
-        }
-    });
+  RED.nodes.registerType('car-location', {
+    category: 'bluelinky',
+    color: '#3FADB5',
+    defaults: {
+      name: { value: 'Get car location' },
+      bluelinky: { value: 'Bluelinky config', type: 'bluelinky' },
+    },
+    inputs: 1,
+    outputs: 1,
+    icon: 'bluelinky.png',
+    label: function () {
+      return this.name || 'car-location';
+    },
+  });
 </script>
 
 <script type="text/javascript">
-    RED.nodes.registerType('unlock-car', {
-        category: 'bluelinky',
-        color: '#3FADB5',
-        defaults: {
-            name: { value: "Unlock car" },
-            bluelinky: { value: "Bluelinky config", type: "bluelinky" },
-        },
-        inputs: 1,
-        outputs: 1,
-        icon: "bluelinky.png",
-        label: function () {
-            return this.name || "unlock-car";
-        }
-    });
+  RED.nodes.registerType('unlock-car', {
+    category: 'bluelinky',
+    color: '#3FADB5',
+    defaults: {
+      name: { value: 'Unlock car' },
+      bluelinky: { value: 'Bluelinky config', type: 'bluelinky' },
+    },
+    inputs: 1,
+    outputs: 1,
+    icon: 'bluelinky.png',
+    label: function () {
+      return this.name || 'unlock-car';
+    },
+  });
 </script>
 
 <script type="text/javascript">
-    RED.nodes.registerType('lock-car', {
-        category: 'bluelinky',
-        color: '#3FADB5',
-        defaults: {
-            name: { value: "Lock car" },
-            bluelinky: { value: "Bluelinky config", type: "bluelinky" },
-        },
-        inputs: 1,
-        outputs: 1,
-        icon: "bluelinky.png",
-        label: function () {
-            return this.name || "lock-car";
-        }
-    });
+  RED.nodes.registerType('lock-car', {
+    category: 'bluelinky',
+    color: '#3FADB5',
+    defaults: {
+      name: { value: 'Lock car' },
+      bluelinky: { value: 'Bluelinky config', type: 'bluelinky' },
+    },
+    inputs: 1,
+    outputs: 1,
+    icon: 'bluelinky.png',
+    label: function () {
+      return this.name || 'lock-car';
+    },
+  });
 </script>
 
 <script type="text/javascript">
-    RED.nodes.registerType('start-charge', {
-        category: 'bluelinky',
-        color: '#3FADB5',
-        defaults: {
-            name: { value: "Start Charging" },
-            bluelinky: { value: "Bluelinky config", type: "bluelinky" },
-        },
-        inputs: 1,
-        outputs: 1,
-        icon: "bluelinky.png",
-        label: function () {
-            return this.name || "start-charge";
-        }
-    });
+  RED.nodes.registerType('start-charge', {
+    category: 'bluelinky',
+    color: '#3FADB5',
+    defaults: {
+      name: { value: 'Start Charging' },
+      bluelinky: { value: 'Bluelinky config', type: 'bluelinky' },
+    },
+    inputs: 1,
+    outputs: 1,
+    icon: 'bluelinky.png',
+    label: function () {
+      return this.name || 'start-charge';
+    },
+  });
 </script>
 
 <script type="text/javascript">
-    RED.nodes.registerType('stop-charge', {
-        category: 'bluelinky',
-        color: '#3FADB5',
-        defaults: {
-            name: { value: "Stop Charging" },
-            bluelinky: { value: "Bluelinky config", type: "bluelinky" },
-        },
-        inputs: 1,
-        outputs: 1,
-        icon: "bluelinky.png",
-        label: function () {
-            return this.name || "stop-charge";
-        }
-    });
+  RED.nodes.registerType('stop-charge', {
+    category: 'bluelinky',
+    color: '#3FADB5',
+    defaults: {
+      name: { value: 'Stop Charging' },
+      bluelinky: { value: 'Bluelinky config', type: 'bluelinky' },
+    },
+    inputs: 1,
+    outputs: 1,
+    icon: 'bluelinky.png',
+    label: function () {
+      return this.name || 'stop-charge';
+    },
+  });
 </script>
 
 <script type="text/javascript">
-    RED.nodes.registerType('bluelinky', {
-        category: 'config',
-        defaults: {
-            username: { required: true },
-            password: { required: true },
-            region: { value: "EU", required: true },
-            pin: { required: true, validate: RED.validators.number() },
-            vin: { required: true },
-            brand: { value: "hyundai", required: true }
-        },
-        label: function () {
-            return this.vin;
-        }
-    });
+  RED.nodes.registerType('login', {
+    category: 'bluelinky',
+    color: '#3FADB5',
+    defaults: {
+      name: { value: 'Login' },
+      bluelinky: { value: 'Bluelinky config', type: 'bluelinky' },
+    },
+    inputs: 1,
+    outputs: 1,
+    icon: 'bluelinky.png',
+    label: function () {
+      return this.name || 'login';
+    },
+  });
+</script>
+
+<script type="text/javascript">
+  RED.nodes.registerType('bluelinky', {
+    category: 'config',
+    defaults: {
+      username: { required: true },
+      password: { required: true },
+      region: { value: 'EU', required: true },
+      pin: { required: true, validate: RED.validators.number() },
+      vin: { required: true },
+      brand: { value: 'hyundai', required: true },
+    },
+    label: function () {
+      return this.vin;
+    },
+  });
 </script>
 
 <script type="text/html" data-template-name="car-status">
-    <div class="form-row">
-        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
-        <input type="text" id="node-input-name" placeholder="Name"/>
-    </div>
-    <div class="form-row">
-        <label for="node-input-dorefresh">
-            Refresh
-        </label>
-        <input type="checkbox" style="display: inline-block; width: auto; vertical-align: top;" id="node-input-dorefresh"/>
-    </div>
-    <div class="form-row">
-        <label for="node-input-parsed">
-            Parsed (Simpler object returned)
-        </label>
-        <input type="checkbox" style="display: inline-block; width: auto; vertical-align: top;" id="node-input-parsed"/>
-    </div>
-    <div class="form-row">
-        <label for="node-input-bluelinky"><i class="icon-tag"></i> Config</label>
-        <input type="text" id="node-input-bluelinky" placeholder="Name">
-    </div>
+  <div class="form-row">
+    <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+    <input type="text" id="node-input-name" placeholder="Name" />
+  </div>
+  <div class="form-row">
+    <label for="node-input-dorefresh"> Refresh </label>
+    <input type="checkbox" style="display: inline-block; width: auto; vertical-align: top;" id="node-input-dorefresh" />
+  </div>
+  <div class="form-row">
+    <label for="node-input-parsed"> Parsed (Simpler object returned) </label>
+    <input type="checkbox" style="display: inline-block; width: auto; vertical-align: top;" id="node-input-parsed" />
+  </div>
+  <div class="form-row">
+    <label for="node-input-bluelinky"><i class="icon-tag"></i> Config</label>
+    <input type="text" id="node-input-bluelinky" placeholder="Name" />
+  </div>
 </script>
 
 <script type="text/html" data-help-name="car-status">
-    <p>Get the status of the configured vehicle</p>
+  <p>Get the status of the configured vehicle</p>
 </script>
 
 <script type="text/html" data-template-name="car-fullstatus">
-    <div class="form-row">
-        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
-        <input type="text" id="node-input-name" placeholder="Name"/>
-    </div>
-    <div class="form-row">
-        <label for="node-input-dorefresh">
-            Refresh
-        </label>
-        <input type="checkbox" style="display: inline-block; width: auto; vertical-align: top;" id="node-input-dorefresh"/>
-    </div>
-    <div class="form-row">
-        <label for="node-input-bluelinky"><i class="icon-tag"></i> Config</label>
-        <input type="text" id="node-input-bluelinky" placeholder="Name">
-    </div>
+  <div class="form-row">
+    <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+    <input type="text" id="node-input-name" placeholder="Name" />
+  </div>
+  <div class="form-row">
+    <label for="node-input-dorefresh"> Refresh </label>
+    <input type="checkbox" style="display: inline-block; width: auto; vertical-align: top;" id="node-input-dorefresh" />
+  </div>
+  <div class="form-row">
+    <label for="node-input-bluelinky"><i class="icon-tag"></i> Config</label>
+    <input type="text" id="node-input-bluelinky" placeholder="Name" />
+  </div>
 </script>
 <script type="text/html" data-help-name="car-fullstatus">
-    <p>Get the full status of the configured vehicle, always unparsed</p>
+  <p>Get the full status of the configured vehicle, always unparsed</p>
 </script>
 
 <script type="text/html" data-template-name="start-car">
-    <div class="form-row">
-        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
-        <input type="text" id="node-input-name" placeholder="Name">
-    </div>
-    <div class="form-row">
-        <label for="node-input-bluelinky"><i class="icon-tag"></i> Config</label>
-        <input type="text" id="node-input-bluelinky" placeholder="Name">
-    </div>
+  <div class="form-row">
+    <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+    <input type="text" id="node-input-name" placeholder="Name" />
+  </div>
+  <div class="form-row">
+    <label for="node-input-bluelinky"><i class="icon-tag"></i> Config</label>
+    <input type="text" id="node-input-bluelinky" placeholder="Name" />
+  </div>
 </script>
 
 <script type="text/html" data-help-name="start-car">
-    <p>For ICE (Internal combustion engine) cars:</p>
-    <p>Starts your engine, required config as msg.payload:<P>
-    <pre>
+  <p>For ICE (Internal combustion engine) cars:</p>
+  <p>Starts your engine, required config as msg.payload:</p>
+  <p></p>
+  <pre>
         {
             airCtrl?: boolean | string;
             igniOnDuration: number;
@@ -257,163 +269,181 @@
             defrost?: boolean | string;
             heating1?: boolean | string;
         }
-    </pre>
-    <br>
-    <p>For EVs:</p>
-    <p>Starts your climate, required config as msg.payload:<P>
-    <pre>
+    </pre
+  >
+  <br />
+  <p>For EVs:</p>
+  <p>Starts your climate, required config as msg.payload:</p>
+  <p></p>
+  <pre>
         {
             defrost: boolean;
             windscreenHeating: boolean;
             temperature: number;
             unit: string;
         }
-    </pre>
+    </pre
+  >
 </script>
 
 <script type="text/html" data-template-name="stop-car">
-    <div class="form-row">
-        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
-        <input type="text" id="node-input-name" placeholder="Name">
-    </div>
-    <div class="form-row">
-        <label for="node-input-bluelinky"><i class="icon-tag"></i> Config</label>
-        <input type="text" id="node-input-bluelinky" placeholder="Name">
-    </div>
+  <div class="form-row">
+    <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+    <input type="text" id="node-input-name" placeholder="Name" />
+  </div>
+  <div class="form-row">
+    <label for="node-input-bluelinky"><i class="icon-tag"></i> Config</label>
+    <input type="text" id="node-input-bluelinky" placeholder="Name" />
+  </div>
 </script>
 
 <script type="text/html" data-help-name="stop-car">
-    <p>For ICE (Internal combustion engine) cars:</p>
-    <p>Stops your engine<P>
-    <br>
-    <p>For EVs:</p>
-    <p>Stops your climate<P>
+  <p>For ICE (Internal combustion engine) cars:</p>
+  <p>Stops your engine</p>
+  <p>
+    <br />
+  </p>
+
+  <p>For EVs:</p>
+  <p>Stops your climate</p>
+  <p></p>
 </script>
 
 <script type="text/html" data-template-name="car-location">
-    <div class="form-row">
-        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
-        <input type="text" id="node-input-name" placeholder="Name">
-    </div>
-    <div class="form-row">
-        <label for="node-input-bluelinky"><i class="icon-tag"></i> Config</label>
-        <input type="text" id="node-input-bluelinky" placeholder="Name">
-    </div>
+  <div class="form-row">
+    <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+    <input type="text" id="node-input-name" placeholder="Name" />
+  </div>
+  <div class="form-row">
+    <label for="node-input-bluelinky"><i class="icon-tag"></i> Config</label>
+    <input type="text" id="node-input-bluelinky" placeholder="Name" />
+  </div>
 </script>
 
 <script type="text/html" data-help-name="car-location">
-    <p>Get the location of the configured vehicle</p>
+  <p>Get the location of the configured vehicle</p>
 </script>
 
 <script type="text/html" data-template-name="car-odometer">
-    <div class="form-row">
-        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
-        <input type="text" id="node-input-name" placeholder="Name">
-    </div>
-    <div class="form-row">
-        <label for="node-input-bluelinky"><i class="icon-tag"></i> Config</label>
-        <input type="text" id="node-input-bluelinky" placeholder="Name">
-    </div>
+  <div class="form-row">
+    <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+    <input type="text" id="node-input-name" placeholder="Name" />
+  </div>
+  <div class="form-row">
+    <label for="node-input-bluelinky"><i class="icon-tag"></i> Config</label>
+    <input type="text" id="node-input-bluelinky" placeholder="Name" />
+  </div>
 </script>
 
 <script type="text/html" data-help-name="car-odometer">
-    <p>Get the odometer of the configured vehicle</p>
+  <p>Get the odometer of the configured vehicle</p>
 </script>
 
 <script type="text/html" data-template-name="start-charge">
-    <div class="form-row">
-        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
-        <input type="text" id="node-input-name" placeholder="Name">
-    </div>
-    <div class="form-row">
-        <label for="node-input-bluelinky"><i class="icon-tag"></i> Config</label>
-        <input type="text" id="node-input-bluelinky" placeholder="Name">
-    </div>
+  <div class="form-row">
+    <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+    <input type="text" id="node-input-name" placeholder="Name" />
+  </div>
+  <div class="form-row">
+    <label for="node-input-bluelinky"><i class="icon-tag"></i> Config</label>
+    <input type="text" id="node-input-bluelinky" placeholder="Name" />
+  </div>
 </script>
 
 <script type="text/html" data-help-name="start-charge">
-    <p>Starts charging the configured vehicle</p>
+  <p>Starts charging the configured vehicle</p>
 </script>
 
 <script type="text/html" data-template-name="stop-charge">
-    <div class="form-row">
-        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
-        <input type="text" id="node-input-name" placeholder="Name">
-    </div>
-    <div class="form-row">
-        <label for="node-input-bluelinky"><i class="icon-tag"></i> Config</label>
-        <input type="text" id="node-input-bluelinky" placeholder="Name">
-    </div>
+  <div class="form-row">
+    <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+    <input type="text" id="node-input-name" placeholder="Name" />
+  </div>
+  <div class="form-row">
+    <label for="node-input-bluelinky"><i class="icon-tag"></i> Config</label>
+    <input type="text" id="node-input-bluelinky" placeholder="Name" />
+  </div>
 </script>
 
 <script type="text/html" data-help-name="stop-charge">
-    <p>Stops charging the configured vehicle</p>
+  <p>Stops charging the configured vehicle</p>
+</script>
+
+<script type="text/html" data-help-name="login">
+  <p>Forces bluelinky to login again</p>
+</script>
+
+<script type="text/html" data-template-name="login">
+  <div class="form-row">
+    <label for="node-input-bluelinky"><i class="icon-tag"></i> Config</label>
+    <input type="text" id="node-input-bluelinky" placeholder="Name" />
+  </div>
 </script>
 
 <script type="text/html" data-template-name="unlock-car">
-    <div class="form-row">
-        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
-        <input type="text" id="node-input-name" placeholder="Name">
-    </div>
-    <div class="form-row">
-        <label for="node-input-bluelinky"><i class="icon-tag"></i> Config</label>
-        <input type="text" id="node-input-bluelinky" placeholder="Name">
-    </div>
+  <div class="form-row">
+    <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+    <input type="text" id="node-input-name" placeholder="Name" />
+  </div>
+  <div class="form-row">
+    <label for="node-input-bluelinky"><i class="icon-tag"></i> Config</label>
+    <input type="text" id="node-input-bluelinky" placeholder="Name" />
+  </div>
 </script>
 
 <script type="text/html" data-help-name="unlock-car">
-    <p>Unlock the configured vehicle</p>
+  <p>Unlock the configured vehicle</p>
 </script>
 
 <script type="text/html" data-template-name="lock-car">
-    <div class="form-row">
-        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
-        <input type="text" id="node-input-name" placeholder="Name">
-    </div>
-    <div class="form-row">
-        <label for="node-input-bluelinky"><i class="icon-tag"></i> Config</label>
-        <input type="text" id="node-input-bluelinky" placeholder="Name">
-    </div>
+  <div class="form-row">
+    <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+    <input type="text" id="node-input-name" placeholder="Name" />
+  </div>
+  <div class="form-row">
+    <label for="node-input-bluelinky"><i class="icon-tag"></i> Config</label>
+    <input type="text" id="node-input-bluelinky" placeholder="Name" />
+  </div>
 </script>
 
 <script type="text/html" data-help-name="lock-car">
-    <p>Lock the configured vehicle</p>
+  <p>Lock the configured vehicle</p>
 </script>
 
 <script type="text/html" data-template-name="bluelinky">
-    <div class="form-row">
-        <label for="node-config-input-name"><i class="icon-bookmark"></i> Name</label>
-        <input type="text" id="node-config-input-name" value="Bluelinky">
-    </div>
-    <div class="form-row">
-        <label for="node-config-input-username"><i class="icon-bookmark"></i> Username</label>
-        <input type="text" id="node-config-input-username">
-    </div>
-    <div class="form-row">
-        <label for="node-config-input-password"><i class="icon-bookmark"></i> Password</label>
-        <input type="password" id="node-config-input-password">
-    </div>
-    <div class="form-row">
-        <label for="node-config-input-region"><i class="icon-bookmark"></i> Region</label>
-        <select id="node-config-input-region">
-            <option value="US">USA</option>
-            <option value="EU">Europe</option>
-            <option value="CA">Canada</option>
-        </select>
-    </div>
-    <div class="form-row">
-        <label for="node-config-input-pin"><i class="icon-bookmark"></i> Pin</label>
-        <input type="password" id="node-config-input-pin">
-    </div>
-    <div class="form-row">
-        <label for="node-config-input-vin"><i class="icon-bookmark"></i> Vin</label>
-        <input type="text" id="node-config-input-vin">
-    </div>
-    <div class="form-row">
-        <label for="node-config-input-brand"><i class="icon-bookmark"></i> Brand</label>
-        <select id="node-config-input-brand">
-            <option value="kia">Kia</option>
-            <option value="hyundai">Hyundai</option>
-        </select>
-    </div>
+  <div class="form-row">
+    <label for="node-config-input-name"><i class="icon-bookmark"></i> Name</label>
+    <input type="text" id="node-config-input-name" value="Bluelinky" />
+  </div>
+  <div class="form-row">
+    <label for="node-config-input-username"><i class="icon-bookmark"></i> Username</label>
+    <input type="text" id="node-config-input-username" />
+  </div>
+  <div class="form-row">
+    <label for="node-config-input-password"><i class="icon-bookmark"></i> Password</label>
+    <input type="password" id="node-config-input-password" />
+  </div>
+  <div class="form-row">
+    <label for="node-config-input-region"><i class="icon-bookmark"></i> Region</label>
+    <select id="node-config-input-region">
+      <option value="US">USA</option>
+      <option value="EU">Europe</option>
+      <option value="CA">Canada</option>
+    </select>
+  </div>
+  <div class="form-row">
+    <label for="node-config-input-pin"><i class="icon-bookmark"></i> Pin</label>
+    <input type="password" id="node-config-input-pin" />
+  </div>
+  <div class="form-row">
+    <label for="node-config-input-vin"><i class="icon-bookmark"></i> Vin</label>
+    <input type="text" id="node-config-input-vin" />
+  </div>
+  <div class="form-row">
+    <label for="node-config-input-brand"><i class="icon-bookmark"></i> Brand</label>
+    <select id="node-config-input-brand">
+      <option value="kia">Kia</option>
+      <option value="hyundai">Hyundai</option>
+    </select>
+  </div>
 </script>
