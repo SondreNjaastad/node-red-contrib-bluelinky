@@ -320,6 +320,132 @@ module.exports = function (RED) {
     });
   }
 
+  function SetChargeTargets(config) {
+    RED.nodes.createNode(this, config);
+    this.bluelinkyConfig = RED.nodes.getNode(config.bluelinky);
+    this.status(this.bluelinkyConfig.status);
+    this.connected = false;
+    const node = this;
+    State.on('changed', (statusObject) => {
+      this.status(statusObject);
+      if (statusObject.text === 'Ready') {
+        this.connected = true;
+      }
+    });
+    node.on('input', async function (msg) {
+      try {
+        if (!this.connected) {
+          return null;
+        }
+        await client.getVehicles();
+        const car = await client.getVehicle(this.bluelinkyConfig.vin);
+        const result = await car.setChargeTargets(msg.payload);
+        node.send({
+          payload: result,
+        });
+      } catch (err) {
+        node.send({
+          payload: err,
+        });
+      }
+    });
+  }
+
+  function SetNavigation(config) {
+    RED.nodes.createNode(this, config);
+    this.bluelinkyConfig = RED.nodes.getNode(config.bluelinky);
+    this.status(this.bluelinkyConfig.status);
+    this.connected = false;
+    const node = this;
+    State.on('changed', (statusObject) => {
+      this.status(statusObject);
+      if (statusObject.text === 'Ready') {
+        this.connected = true;
+      }
+    });
+    node.on('input', async function (msg) {
+      try {
+        if (!this.connected) {
+          return null;
+        }
+        await client.getVehicles();
+        const car = await client.getVehicle(this.bluelinkyConfig.vin);
+        const result = await car.setNavigation(msg.payload);
+        node.send({
+          payload: result,
+        });
+      } catch (err) {
+        node.send({
+          payload: err,
+        });
+      }
+    });
+  }
+
+  function GetMonthlyReport(config) {
+    RED.nodes.createNode(this, config);
+    this.bluelinkyConfig = RED.nodes.getNode(config.bluelinky);
+    this.status(this.bluelinkyConfig.status);
+    this.connected = false;
+    const node = this;
+
+    State.on('changed', (statusObject) => {
+      this.status(statusObject);
+      if (statusObject.text === 'Ready') {
+        this.connected = true;
+      }
+    });
+    node.on('input', async function (msg) {
+      try {
+        if (!this.connected) {
+          return null;
+        }
+        await client.getVehicles();
+        const car = await client.getVehicle(this.bluelinkyConfig.vin);
+        const result = await car.monthlyReport();
+        node.send({
+          payload: result,
+        });
+      } catch (err) {
+        node.send({
+          payload: err,
+        });
+      }
+    });
+  }
+
+  function GetTripInfo(config) {
+    RED.nodes.createNode(this, config);
+    this.bluelinkyConfig = RED.nodes.getNode(config.bluelinky);
+    this.status(this.bluelinkyConfig.status);
+    this.connected = false;
+    const node = this;
+
+    State.on('changed', (statusObject) => {
+      this.status(statusObject);
+      if (statusObject.text === 'Ready') {
+        this.connected = true;
+      }
+    });
+    node.on('input', async function (msg) {
+      try {
+        if (!this.connected) {
+          return null;
+        }
+        await client.getVehicles();
+        const car = await client.getVehicle(this.bluelinkyConfig.vin);
+        const result = await car.tripInfo(msg.payload);
+        node.send({
+          payload: result,
+        });
+      } catch (err) {
+        node.send({
+          payload: err,
+        });
+      }
+    });
+  }
+
   function Login(config) {
     RED.nodes.createNode(this, config);
     this.bluelinkyConfig = RED.nodes.getNode(config.bluelinky);
@@ -373,4 +499,8 @@ module.exports = function (RED) {
   RED.nodes.registerType('stop-car', Stop);
   RED.nodes.registerType('start-charge', StartCharge);
   RED.nodes.registerType('stop-charge', StopCharge);
+  RED.nodes.registerType('set-chargetargets', SetChargeTargets);
+  RED.nodes.registerType('set-navigation', SetNavigation);
+  RED.nodes.registerType('get-monthlyreport', GetMonthlyReport);
+  RED.nodes.registerType('get-tripinfo', GetTripInfo);
 };
