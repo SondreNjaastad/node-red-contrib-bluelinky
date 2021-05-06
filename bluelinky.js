@@ -247,6 +247,7 @@ module.exports = function (RED) {
         if (!this.connected) {
           return null;
         }
+        await client.getVehicles();
         const car = await client.getVehicle(this.bluelinkyConfig.vin);
         const result = await car.start(msg.payload);
         node.send({
@@ -277,6 +278,7 @@ module.exports = function (RED) {
         if (!this.connected) {
           return null;
         }
+        await client.getVehicles();
         const car = await client.getVehicle(this.bluelinkyConfig.vin);
         const result = await car.stop(msg.payload);
         node.send({
@@ -307,8 +309,8 @@ module.exports = function (RED) {
         if (!this.connected) {
           return null;
         }
-        let car = await client.getVehicle(this.bluelinkyConfig.vin);
-        let result = await car.lock();
+        const car = await client.getVehicle(this.bluelinkyConfig.vin);
+        const result = await car.lock();
         node.send({
           payload: result,
         });
