@@ -36,6 +36,74 @@
 </script>
 
 <script type="text/javascript">
+  RED.nodes.registerType('get-tripinfo', {
+    category: 'bluelinky',
+    color: '#3FADB5',
+    defaults: {
+      name: { value: 'Tripinfo' },
+      bluelinky: { value: 'Bluelinky config', type: 'bluelinky' },
+    },
+    inputs: 1,
+    outputs: 1,
+    icon: 'bluelinky.png',
+    label: function () {
+      return this.name || 'get-tripinfo';
+    },
+  });
+</script>
+
+<script type="text/javascript">
+  RED.nodes.registerType('get-monthlyreport', {
+    category: 'bluelinky',
+    color: '#3FADB5',
+    defaults: {
+      name: { value: 'Get monthly report' },
+      bluelinky: { value: 'Bluelinky config', type: 'bluelinky' },
+    },
+    inputs: 1,
+    outputs: 1,
+    icon: 'bluelinky.png',
+    label: function () {
+      return this.name || 'get-monthlyreport';
+    },
+  });
+</script>
+
+<script type="text/javascript">
+  RED.nodes.registerType('set-navigation', {
+    category: 'bluelinky',
+    color: '#3FADB5',
+    defaults: {
+      name: { value: 'Set navigation' },
+      bluelinky: { value: 'Bluelinky config', type: 'bluelinky' },
+    },
+    inputs: 1,
+    outputs: 1,
+    icon: 'bluelinky.png',
+    label: function () {
+      return this.name || 'set-navigation';
+    },
+  });
+</script>
+
+<script type="text/javascript">
+  RED.nodes.registerType('set-chargetargets', {
+    category: 'bluelinky',
+    color: '#3FADB5',
+    defaults: {
+      name: { value: 'Set charge targets' },
+      bluelinky: { value: 'Bluelinky config', type: 'bluelinky' },
+    },
+    inputs: 1,
+    outputs: 1,
+    icon: 'bluelinky.png',
+    label: function () {
+      return this.name || 'set-chargetargets';
+    },
+  });
+</script>
+
+<script type="text/javascript">
   RED.nodes.registerType('start-car', {
     category: 'bluelinky',
     color: '#3FADB5',
@@ -246,6 +314,83 @@
   <p>Get the full status of the configured vehicle, always unparsed</p>
 </script>
 
+<script type="text/html" data-template-name="get-monthlyreport">
+  <div class="form-row">
+    <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+    <input type="text" id="node-input-name" placeholder="Name" />
+  </div>
+  <div class="form-row">
+    <label for="node-input-bluelinky"><i class="icon-tag"></i> Config</label>
+    <input type="text" id="node-input-bluelinky" placeholder="Name" />
+  </div>
+</script>
+
+<script type="text/html" data-help-name="get-monthlyreport">
+  <p>[EU] Gets a report of last month</p>
+</script>
+
+<script type="text/html" data-template-name="get-tripinfo">
+  <div class="form-row">
+    <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+    <input type="text" id="node-input-name" placeholder="Name" />
+  </div>
+  <div class="form-row">
+    <label for="node-input-bluelinky"><i class="icon-tag"></i> Config</label>
+    <input type="text" id="node-input-bluelinky" placeholder="Name" />
+  </div>
+</script>
+
+<script type="text/html" data-help-name="get-tripinfo">
+  <p>[EU] Gets info about the trips of a day, required config as msg.payload:</p>
+  <p>If day is omitted, you are getting a summary of the month</p>
+  <p>If month and year are also omitted, summary of this month</p>
+  for example:
+  <pre>
+      { "year": 2021, "month": 3 }
+    or
+      { "year": 2021, "month": 3, "day": 24}
+  </pre>
+</script>
+
+<script type="text/html" data-template-name="set-navigation">
+  <div class="form-row">
+    <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+    <input type="text" id="node-input-name" placeholder="Name" />
+  </div>
+  <div class="form-row">
+    <label for="node-input-bluelinky"><i class="icon-tag"></i> Config</label>
+    <input type="text" id="node-input-bluelinky" placeholder="Name" />
+  </div>
+</script>
+
+<script type="text/html" data-help-name="set-navigation">
+  <p>For EVs:</p>
+  <p>Sets your navigation to max three waypoints, required config as msg.payload:</p>
+  <p></p>
+</script>
+
+<script type="text/html" data-template-name="set-chargetargets">
+  <div class="form-row">
+    <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+    <input type="text" id="node-input-name" placeholder="Name" />
+  </div>
+  <div class="form-row">
+    <label for="node-input-bluelinky"><i class="icon-tag"></i> Config</label>
+    <input type="text" id="node-input-bluelinky" placeholder="Name" />
+  </div>
+</script>
+
+<script type="text/html" data-help-name="set-chargetargets">
+  <p>[EU][EV] Sets your charge targets, required config as msg.payload:</p>
+  <p></p>
+  <pre>
+        {
+            "fast": number;
+            "slow": number;
+        }
+  </pre>
+</script>
+
 <script type="text/html" data-template-name="start-car">
   <div class="form-row">
     <label for="node-input-name"><i class="icon-tag"></i> Name</label>
@@ -269,8 +414,7 @@
             defrost?: boolean | string;
             heating1?: boolean | string;
         }
-    </pre
-  >
+  </pre>
   <br />
   <p>For EVs:</p>
   <p>Starts your climate, required config as msg.payload:</p>
@@ -282,8 +426,7 @@
             temperature: number;
             unit: string;
         }
-    </pre
-  >
+  </pre>
 </script>
 
 <script type="text/html" data-template-name="stop-car">
