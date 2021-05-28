@@ -1,6 +1,6 @@
 {
   "name": "node-red-contrib-bluelinky",
-  "version": "0.0.23",
+  "version": "0.0.24",
   "description": "A Node Red Library for BlueLinky, a Hyundai and Kia 3rd-party wrapper",
   "main": "bluelinky.js",
   "scripts": {
@@ -33,6 +33,6 @@
   },
   "homepage": "https://github.com/SondreNjaastad/node-red-contrib-bluelinky#readme",
   "dependencies": {
-    "bluelinky": "^7.2.1"
+    "bluelinky": "^7.2.2"
   }
 }
