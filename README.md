@@ -1,7 +1,7 @@
 # node-red-contrib-bluelinky
 A node-red flow for controlling Hyundai BlueLink vehicles powered by [bluelinky](https://github.com/Hacksore/bluelinky)
 
-[![npm](https://img.shields.io/npm/v/node-red-contrib-bluelinky.svg)](https://www.npmjs.com/package/bluelinky)
+[![npm](https://img.shields.io/npm/v/node-red-contrib-bluelinky.svg)](https://www.npmjs.com/package/node-red-contrib-bluelinky)
 [![Discord](https://img.shields.io/discord/652755205041029120)](https://discord.gg/HwnG8sY)
 
 ![Sample](https://i.imgur.com/eUhFjxq.png)
