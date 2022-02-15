@@ -25,3 +25,14 @@ Important information for login problems:
 - Start (with climate control)
 - Stop
 - Status
+
+## What to do when bluelinky is updated
+node-red-contrib-bluelinky will install the latest bluelinky package when it is installed. So how to update the bluelinky package when no new version of node-red-contrib-bluelinky is available?
+- Export the flows that contain the bluelinky nodes (or export all of them)
+- Delete these flows
+- Delete the configuration node
+- Remove the palette node-red-contrib-bluelinky
+- Restart node-red
+- Install the palette node-red-contrib-bluelinky, it will then install latest version of bluelinky as well
+- Import the exported flows
+- Redeploy the imported flows
