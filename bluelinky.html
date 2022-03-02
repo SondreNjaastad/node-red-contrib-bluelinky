@@ -53,6 +53,23 @@
 </script>
 
 <script type="text/javascript">
+  RED.nodes.registerType('get-drivehistory', {
+    category: 'bluelinky',
+    color: '#3FADB5',
+    defaults: {
+      name: { value: 'DriveHistory' },
+      bluelinky: { value: 'Bluelinky config', type: 'bluelinky' },
+    },
+    inputs: 1,
+    outputs: 1,
+    icon: 'bluelinky.png',
+    label: function () {
+      return this.name || 'get-drivehistory';
+    },
+  });
+</script>
+
+<script type="text/javascript">
   RED.nodes.registerType('get-monthlyreport', {
     category: 'bluelinky',
     color: '#3FADB5',
@@ -310,6 +327,7 @@
     <input type="text" id="node-input-bluelinky" placeholder="Name" />
   </div>
 </script>
+
 <script type="text/html" data-help-name="car-fullstatus">
   <p>Get the full status of the configured vehicle, always unparsed</p>
 </script>
@@ -327,6 +345,27 @@
 
 <script type="text/html" data-help-name="get-monthlyreport">
   <p>[EU] Gets a report of last month</p>
+</script>
+
+<script type="text/html" data-template-name="get-drivehistory">
+  <div class="form-row">
+    <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+    <input type="text" id="node-input-name" placeholder="Name" />
+  </div>
+  <div class="form-row">
+    <label for="node-input-bluelinky"><i class="icon-tag"></i> Config</label>
+    <input type="text" id="node-input-bluelinky" placeholder="Name" />
+  </div>
+</script>
+
+<script type="text/html" data-help-name="get-drivehistory">
+  <p>[EU] Gets info about the energy consumption in a timeperiod, required config as msg.payload:</p>
+  <p>0 = day, 1 = month, 2 = all</p>
+  <p>If omitted, day is used.</p>
+  for example:
+  <pre>
+      msg.payload = 0
+  </pre>
 </script>
 
 <script type="text/html" data-template-name="get-tripinfo">
@@ -384,10 +423,7 @@
   <p>[EU][EV] Sets your charge targets, required config as msg.payload:</p>
   <p></p>
   <pre>
-        {
-            "fast": number;
-            "slow": number;
-        }
+        {"fast": number, "slow": number}
   </pre>
 </script>
 

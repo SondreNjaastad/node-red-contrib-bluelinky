@@ -448,6 +448,38 @@ module.exports = function (RED) {
     });
   }
 
+  function GetDriveHistory(config) {
+    RED.nodes.createNode(this, config);
+    this.bluelinkyConfig = RED.nodes.getNode(config.bluelinky);
+    this.status(this.bluelinkyConfig.status);
+    this.connected = false;
+    const node = this;
+
+    State.on('changed', (statusObject) => {
+      this.status(statusObject);
+      if (statusObject.text === 'Ready') {
+        this.connected = true;
+      }
+    });
+    node.on('input', async function (msg) {
+      try {
+        if (!this.connected) {
+          return null;
+        }
+        await client.getVehicles();
+        const car = await client.getVehicle(this.bluelinkyConfig.vin);
+        const result = await car.driveHistory(msg.payload);
+        node.send({
+          payload: result,
+        });
+      } catch (err) {
+        node.send({
+          payload: err,
+        });
+      }
+    });
+  }
+
   function Login(config) {
     RED.nodes.createNode(this, config);
     this.bluelinkyConfig = RED.nodes.getNode(config.bluelinky);
@@ -505,4 +537,5 @@ module.exports = function (RED) {
   RED.nodes.registerType('set-navigation', SetNavigation);
   RED.nodes.registerType('get-monthlyreport', GetMonthlyReport);
   RED.nodes.registerType('get-tripinfo', GetTripInfo);
+  RED.nodes.registerType('get-drivehistory', GetDriveHistory);
 };
