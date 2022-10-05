@@ -283,6 +283,7 @@
       pin: { required: true, validate: RED.validators.number() },
       vin: { required: true },
       brand: { value: 'hyundai', required: true },
+      language: { value: 'en', required: false },
     },
     label: function () {
       return this.vin;
@@ -623,6 +624,13 @@
     <select id="node-config-input-brand">
       <option value="kia">Kia</option>
       <option value="hyundai">Hyundai</option>
+    </select>
+  </div>
+  <div class="form-row">
+    <label for="node-config-input-language"><i class="icon-bookmark"></i> Language</label>
+    <select id="node-config-input-language">
+      <option value="de">German</option>
+      <option value="en">English</option>
     </select>
   </div>
 </script>
