@@ -4,8 +4,11 @@
 name: Node.js Package
 
 on:
+  # Allow manual
+  workflow_dispatch:
+  # use publish even so when goes from draft -> released
   release:
-    types: [created]
+    types: [published]
 
 jobs:
   publish-npm:
