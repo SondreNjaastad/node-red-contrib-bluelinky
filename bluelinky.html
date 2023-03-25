@@ -121,6 +121,23 @@
 </script>
 
 <script type="text/javascript">
+  RED.nodes.registerType('get-chargetargets', {
+    category: 'bluelinky',
+    color: '#3FADB5',
+    defaults: {
+      name: { value: 'Get charge targets' },
+      bluelinky: { value: 'Bluelinky config', type: 'bluelinky' },
+    },
+    inputs: 1,
+    outputs: 1,
+    icon: 'bluelinky.png',
+    label: function () {
+      return this.name || 'get-chargetargets';
+    },
+  });
+</script>
+
+<script type="text/javascript">
   RED.nodes.registerType('start-car', {
     category: 'bluelinky',
     color: '#3FADB5',
@@ -426,6 +443,21 @@
   <pre>
         {"fast": number, "slow": number}
   </pre>
+</script>
+
+<script type="text/html" data-template-name="get-chargetargets">
+  <div class="form-row">
+    <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+    <input type="text" id="node-input-name" placeholder="Name" />
+  </div>
+  <div class="form-row">
+    <label for="node-input-bluelinky"><i class="icon-tag"></i> Config</label>
+    <input type="text" id="node-input-bluelinky" placeholder="Name" />
+  </div>
+</script>
+
+<script type="text/html" data-help-name="get-chargetargets">
+  <p>Get the charge targets of the configured vehicle</p>
 </script>
 
 <script type="text/html" data-template-name="start-car">
