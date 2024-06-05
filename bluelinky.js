@@ -1,4 +1,4 @@
-const BlueLinky = require('bluelinky');
+const { BlueLinky } = require('bluelinky');
 const EventEmitter = require('events');
 
 const State = new EventEmitter();
