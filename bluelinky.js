@@ -27,9 +27,8 @@ module.exports = function (RED) {
           refresh: config.dorefresh,
           parsed: config.parsed,
         });
-        node.send({
-          payload: status,
-        });
+        msg.payload = status;
+        node.send(msg);
       } catch (err) {
         node.send({
           payload: err,
@@ -59,9 +58,8 @@ module.exports = function (RED) {
         const status = await car.fullStatus({
           refresh: config.dorefresh,
         });
-        node.send({
-          payload: status,
-        });
+        msg.payload = status;
+        node.send(msg);
       } catch (err) {
         node.send({
           payload: err,
@@ -91,9 +89,8 @@ module.exports = function (RED) {
         const car = await client.getVehicle(this.bluelinkyConfig.vin);
         this.status(this.bluelinkyConfig.status);
         const result = await car.unlock();
-        node.send({
-          payload: result,
-        });
+        msg.payload = result;
+        node.send(msg);
       } catch (err) {
         node.send({
           payload: err,
@@ -123,9 +120,8 @@ module.exports = function (RED) {
         const car = await client.getVehicle(this.bluelinkyConfig.vin);
         this.status(this.bluelinkyConfig.status);
         const result = await car.startCharge();
-        node.send({
-          payload: result,
-        });
+        msg.payload = result;
+        node.send(msg);
       } catch (err) {
         node.send({
           payload: err,
@@ -155,9 +151,8 @@ module.exports = function (RED) {
         const car = await client.getVehicle(this.bluelinkyConfig.vin);
         this.status(this.bluelinkyConfig.status);
         const result = await car.stopCharge();
-        node.send({
-          payload: result,
-        });
+        msg.payload = result;
+        node.send(msg);
       } catch (err) {
         node.send({
           payload: err,
@@ -187,9 +182,8 @@ module.exports = function (RED) {
         const car = await client.getVehicle(this.bluelinkyConfig.vin);
         this.status(this.bluelinkyConfig.status);
         const result = await car.location();
-        node.send({
-          payload: result,
-        });
+        msg.payload = result;
+        node.send(msg);
       } catch (err) {
         node.send({
           payload: err,
@@ -219,9 +213,8 @@ module.exports = function (RED) {
         await client.getVehicles();
         const car = await client.getVehicle(this.bluelinkyConfig.vin);
         const result = await car.odometer();
-        node.send({
-          payload: result,
-        });
+        msg.payload = result;
+        node.send(msg);
       } catch (err) {
         node.send({
           payload: err,
@@ -250,9 +243,8 @@ module.exports = function (RED) {
         await client.getVehicles();
         const car = await client.getVehicle(this.bluelinkyConfig.vin);
         const result = await car.start(msg.payload);
-        node.send({
-          payload: result,
-        });
+        msg.payload = result;
+        node.send(msg);
       } catch (err) {
         node.send({
           payload: err,
@@ -281,9 +273,8 @@ module.exports = function (RED) {
         await client.getVehicles();
         const car = await client.getVehicle(this.bluelinkyConfig.vin);
         const result = await car.stop(msg.payload);
-        node.send({
-          payload: result,
-        });
+        msg.payload = result;
+        node.send(msg);
       } catch (err) {
         node.send({
           payload: err,
@@ -311,9 +302,8 @@ module.exports = function (RED) {
         }
         const car = await client.getVehicle(this.bluelinkyConfig.vin);
         const result = await car.lock();
-        node.send({
-          payload: result,
-        });
+        msg.payload = result;
+        node.send(msg);
       } catch (err) {
         node.send({
           payload: err,
@@ -342,9 +332,8 @@ module.exports = function (RED) {
         await client.getVehicles();
         const car = await client.getVehicle(this.bluelinkyConfig.vin);
         const result = await car.setChargeTargets(msg.payload);
-        node.send({
-          payload: result,
-        });
+        msg.payload = result;
+        node.send(msg);
       } catch (err) {
         node.send({
           payload: err,
@@ -373,9 +362,8 @@ module.exports = function (RED) {
         await client.getVehicles();
         const car = await client.getVehicle(this.bluelinkyConfig.vin);
         const limits = await car.getChargeTargets();
-        node.send({
-          payload: limits,
-        });
+        msg.payload = limits;
+        node.send(msg);
       } catch (err) {
         node.send({
           payload: err,
@@ -404,9 +392,8 @@ module.exports = function (RED) {
         await client.getVehicles();
         const car = await client.getVehicle(this.bluelinkyConfig.vin);
         const result = await car.setNavigation(msg.payload);
-        node.send({
-          payload: result,
-        });
+        msg.payload = result;
+        node.send(msg);
       } catch (err) {
         node.send({
           payload: err,
@@ -436,9 +423,8 @@ module.exports = function (RED) {
         await client.getVehicles();
         const car = await client.getVehicle(this.bluelinkyConfig.vin);
         const result = await car.monthlyReport();
-        node.send({
-          payload: result,
-        });
+        msg.payload = result;
+        node.send(msg);
       } catch (err) {
         node.send({
           payload: err,
@@ -468,9 +454,8 @@ module.exports = function (RED) {
         await client.getVehicles();
         const car = await client.getVehicle(this.bluelinkyConfig.vin);
         const result = await car.tripInfo(msg.payload);
-        node.send({
-          payload: result,
-        });
+        msg.payload = result;
+        node.send(msg);
       } catch (err) {
         node.send({
           payload: err,
@@ -500,9 +485,8 @@ module.exports = function (RED) {
         await client.getVehicles();
         const car = await client.getVehicle(this.bluelinkyConfig.vin);
         const result = await car.driveHistory(msg.payload);
-        node.send({
-          payload: result,
-        });
+        msg.payload = result;
+        node.send(msg);
       } catch (err) {
         node.send({
           payload: err,
